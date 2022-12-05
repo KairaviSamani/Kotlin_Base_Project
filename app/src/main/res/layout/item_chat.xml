@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.example.kotlinbaseproject.model.MessageType" />
+
+        <import type="android.graphics.Color" />
+
+        <import type="android.view.Gravity" />
+
+        <variable
+            name="chat"
+            type="com.example.kotlinbaseproject.model.Chat" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:elevation="@dimen/_3sdp"
+            android:padding="@dimen/_5sdp"
+            android:text="@{chat.message}"
+            android:background="@{chat.messageType == MessageType.RECEIVER ?  Color.parseColor(`#FFFFFFFF`):Color.parseColor(`#ff00ddff`)}"
+            android:textColor="@{chat.messageType == MessageType.RECEIVER ?  Color.parseColor(`#ff00ddff`):Color.parseColor(`#FFFFFFFF`)}"
+            app:gravity="@{chat.messageType == MessageType.RECEIVER ? Gravity.START : Gravity.END}"
+            tools:text="Message" />
+    </LinearLayout>
+</layout>

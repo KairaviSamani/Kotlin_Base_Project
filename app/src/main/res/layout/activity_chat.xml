@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="com.example.kotlinbaseproject.model.MessageType" />
+
+        <variable
+            name="chatViewModel"
+            type="com.example.kotlinbaseproject.viewmodel.ChatViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#E1E1E1">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:title="Chat"
+            app:titleTextColor="@color/white" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_chat"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="@dimen/_5sdp"
+            app:chatList="@{chatViewModel.getChatData}" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tl_sender"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:hint="@string/sender_message"
+            app:endIconDrawable="@android:drawable/ic_menu_send"
+            app:endIconMode="custom"
+            app:endIconTint="?attr/colorPrimary"
+            app:messageType="@{MessageType.SENDER}"
+            app:editText="@{etSender}"
+            app:viewModel="@{chatViewModel}">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_sender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tl_receiver"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:hint="@string/receiver_message"
+            app:endIconDrawable="@android:drawable/ic_menu_send"
+            app:endIconMode="custom"
+            app:endIconTint="?attr/colorPrimary"
+            app:messageType="@{MessageType.RECEIVER}"
+            app:editText="@{etReceiver}"
+            app:viewModel="@{chatViewModel}">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_receiver"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+</layout>

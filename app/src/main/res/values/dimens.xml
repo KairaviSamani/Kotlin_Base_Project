@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="edit_text_size">@dimen/_12ssp</dimen>
+    <dimen name="button_text_size">@dimen/_12ssp</dimen>
+    <dimen name="header_text_size">@dimen/_14ssp</dimen>
+    <dimen name="icon_text_size">@dimen/_14ssp</dimen>
+
+    <dimen name="small_text_size">@dimen/_10ssp</dimen>
+    <dimen name="medium_text_size">@dimen/_12ssp</dimen>
+    <dimen name="large_text_size">@dimen/_14ssp</dimen>
+
+</resources>
